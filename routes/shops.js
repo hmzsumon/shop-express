@@ -14,6 +14,10 @@ router.get('/:shopId', shopController.findById);
 router.put('/:id', userController.isAuthenticated, shopController.updateById);
 
 //Delete Shop
-router.delete('/:shopId', shopController.deleteById);
+router.delete(
+	'/:shopId',
+	userController.isAuthenticated,
+	shopController.deleteById
+);
 
 module.exports = router;
